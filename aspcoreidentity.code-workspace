@@ -1,0 +1,56 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "build",
+				"command": "dotnet",
+				"type": "shell",
+				"args": [
+					"build",
+					// Ask dotnet build to generate full paths for file names.
+					"/property:GenerateFullPaths=true",
+					// Do not generate summary otherwise it leads to duplicate errors in Problems panel
+					"/consoleloggerparameters:NoSummary"
+				],
+				"group": "build",
+				"presentation": {
+					"reveal": "silent"
+				},
+				"problemMatcher": "$msCompile"
+			}
+		]
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": ".NET Core Launch (web)",
+				"type": "coreclr",
+				"request": "launch",
+				"preLaunchTask": "build",
+				"program": "${workspaceFolder}/bin/Debug/net7.0/aspcoreidentity.dll",
+				"args": [],
+				"cwd": "${workspaceFolder}",
+				"stopAtEntry": false,
+				"launchSettingsProfile": "https",
+				"serverReadyAction": {
+					"action": "openExternally",
+					"pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+				},
+				"env": {
+					"ASPNETCORE_ENVIRONMENT": "Development"
+				},
+				"sourceFileMap": {
+					"/Views": "${workspaceFolder}/Views"
+				}
+			}
+		]
+	}
+}
