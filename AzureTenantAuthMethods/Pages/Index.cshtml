@@ -1,0 +1,17 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    @if (User!.Identity!.IsAuthenticated)
+    {
+        <p>You are logged into a site secured by an Azure AD Tenant that you have a logged in with</p>
+    }
+    else
+    {
+        <p>You are not logged inr</p>
+    }
+</div>
